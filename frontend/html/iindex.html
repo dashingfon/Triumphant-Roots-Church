@@ -1,0 +1,365 @@
+<html lang="en" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grace Church</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    html{font-family:'Inter',sans-serif}
+    .hide-scroll::-webkit-scrollbar{display:none}
+    .hide-scroll{-ms-overflow-style:none;scrollbar-width:none}
+  </style>
+  <script>
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!localStorage.getItem('theme') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
+</head>
+
+<body class="font-[Inter] bg-neutral-50 text-neutral-800 antialiased selection:bg-indigo-200/80 dark:bg-neutral-900 dark:text-neutral-200 transition-colors duration-300 ease-out">
+  <!-- ───────────────────────── NAV ────────────────────────── -->
+  <nav class="fixed top-0 inset-x-0 z-50 dark:bg-neutral-900/80 dark:border-neutral-700 transition-colors duration-300 bg-white/80 border-neutral-200 border-b backdrop-blur">
+    <div class="max-w-7xl mx-auto flex items-center justify-between pt-3 pb-3 px-4">
+      <a href="#home" class="md:text-2xl dark:text-neutral-100 text-xl font-semibold tracking-tight flex items-center" aria-label="Triumphant Root in Christ Logo">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mr-2 stroke-indigo-600 dark:stroke-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+    <path d="M2 17l10 5 10-5"></path>
+    <path d="M2 12l10 5 10-5"></path>
+  </svg>
+</a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#messages" class="nav-link text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Messages</a>
+        <a href="#programs" class="nav-link text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">Programs</a>
+        <a href="#about" class="nav-link text-sm font-medium hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-2">
+        <a href="#join" class="px-4 py-2 text-sm font-semibold rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition shadow-sm">Join&nbsp;Us</a>
+        <a href="#login" class="px-4 py-2 text-sm font-semibold rounded-md border border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/20 transition">Login</a>
+      </div>
+
+      <!-- Theme toggle -->
+      <button id="themeToggle" aria-label="Toggle theme" class="mr-3 md:mr-0 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sun" class="lucide lucide-sun w-6 h-6 block dark:hidden"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="moon" class="lucide lucide-moon w-6 h-6 hidden dark:block"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+      </button>
+
+      <!-- Mobile -->
+      <button id="menuBtn" class="md:hidden text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-6 h-6"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4 space-y-2">
+      <a href="#messages" class="block nav-link text-sm font-medium py-1 hover:text-indigo-600 dark:hover:text-indigo-400">Messages</a>
+      <a href="#programs" class="block nav-link text-sm font-medium py-1 hover:text-indigo-600 dark:hover:text-indigo-400">Programs</a>
+      <a href="#about" class="block nav-link text-sm font-medium py-1 hover:text-indigo-600 dark:hover:text-indigo-400">About</a>
+      <div class="pt-2 space-y-2">
+        <a href="#join" class="block w-full text-center px-4 py-2 text-sm font-semibold rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition">Join&nbsp;Us</a>
+        <a href="#login" class="block w-full text-center px-4 py-2 text-sm font-semibold rounded-md border border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/20 transition">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ───────────────────────── HERO ────────────────────────── -->
+  <section class="pt-24">
+    <div class="relative">
+      <img src="https://images.unsplash.com/photo-1600288480699-0b0d8a456dd8?w=1080&amp;q=80" alt="Church exterior" class="w-full h-[60vh] sm:h-[70vh] object-cover">
+      <div class="absolute inset-0 bg-neutral-900/40"></div>
+      <div class="absolute inset-0 flex flex-col text-white text-center pr-4 pl-4 items-center justify-center">
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Grace Church</h1>
+        <p class="text-lg md:text-xl max-w-2xl">A community journeying together in hope, faith, and love.</p>
+        <button class="mt-8 px-4 py-2 font-semibold rounded-md bg-indigo-600 hover:bg-indigo-700 transition">Drop Your Contact</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── PREVIEWS (Messages / Programs / About) ──────────────── -->
+  <section class="max-w-7xl mr-auto ml-auto pt-16 pr-4 pb-16 pl-4 space-y-16" id="aura-emc6dcoxl">
+    <!-- Messages Preview -->
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <img src="https://images.unsplash.com/photo-1600288480699-0b0d8a456dd8?w=1080&amp;q=80" alt="Sermon" class="w-full md:w-1/2 h-56 md:h-64 object-cover rounded-lg shadow-sm">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Latest Messages</h2>
+        <p class="text-neutral-600 dark:text-neutral-400 max-w-lg">Catch up on recent sermons and teachings—whether you’re on the go or cosy at home.</p>
+        <a href="#messages" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">
+          Browse Messages <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 ml-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Programs Preview -->
+    <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+      <img src="https://images.unsplash.com/photo-1722299546307-c0aba8139484?w=1080&amp;q=80" alt="Programs" class="w-full md:w-1/2 h-56 md:h-64 object-cover rounded-lg shadow-sm">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Upcoming Programs</h2>
+        <p class="text-neutral-600 dark:text-neutral-400 max-w-lg">Join small groups, community outreach, and special events designed to connect and grow.</p>
+        <a href="#programs" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">
+          See Programs <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 ml-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- About Preview -->
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <img src="https://images.unsplash.com/photo-1634482899780-6ac6b92c656e?w=1080&amp;q=80" alt="About us" class="w-full md:w-1/2 h-56 md:h-64 object-cover rounded-lg shadow-sm">
+      <div class="space-y-4">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Who We Are</h2>
+        <p class="text-neutral-600 dark:text-neutral-400 max-w-lg">Discover our mission, meet our leaders, and learn how to connect with us.</p>
+        <a href="#about" class="inline-flex items-center text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">
+          About Grace Church <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 ml-1"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact & Location Section -->
+    <div class="flex flex-col md:flex-row items-start gap-8">
+      <div class="md:w-1/2 space-y-6">
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">Contact &amp; Location</h2>
+        <div class="space-y-4 text-neutral-700 dark:text-neutral-300 max-w-md">
+          <div>
+            <h3 class="font-semibold text-lg">Phone</h3>
+            <p><a href="tel:+1234567890" class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">+1 (234) 567-890</a></p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-lg">Email</h3>
+            <p><a href="mailto:info@gracechurch.org" class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">info@gracechurch.org</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/2 rounded-lg overflow-hidden shadow-sm h-64 md:h-80">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019455370172!2d-122.4194153846814!3d37.77492977975944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5e6e53d7%3A0x8c7c3e7f2c5a4b3a!2sGrace%20Cathedral!5e0!3m2!1sen!2sus!4v1696032000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Grace Church Location Map" class=""></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── MESSAGES ─────────────────────── -->
+  <section id="messages" class="bg-neutral-100 dark:bg-neutral-800 py-20 transition-colors duration-300">
+    <div class="max-w-7xl mr-auto ml-auto pr-4 pl-4 space-y-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Messages</h2>
+        <div class="flex space-x-2 items-center">
+          <button data-filter="all" class="filter-btn dark:border-neutral-600 dark:bg-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-600 text-sm font-medium bg-white border-neutral-300 border rounded-md pt-2 pr-4 pb-2 pl-4">All</button>
+          <button data-filter="audio" class="filter-btn dark:border-indigo-600 dark:bg-indigo-700 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-600 text-sm font-medium border-indigo-300 border rounded-md pt-2 pr-4 pb-2 pl-4">Audio</button>
+          <button data-filter="video" class="filter-btn px-4 py-2 text-sm font-medium rounded-md border border-green-600 bg-green-50 text-green-700 hover:bg-green-100">Video</button>
+          <button data-filter="written" class="filter-btn px-4 py-2 text-sm font-medium rounded-md border border-pink-600 bg-pink-50 text-pink-700 hover:bg-pink-100">Written</button>
+        </div>
+      </div>
+
+      <div id="messageGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-gradient-to-tr from-indigo-600 to-indigo-400 text-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300" data-filter="audio">
+          <img src="https://images.unsplash.com/photo-1600288480699-0b0d8a456dd8?w=600&amp;q=80" alt="Message 1" class="w-full h-48 object-cover brightness-90">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight drop-shadow-md">The Power of Faith</h3>
+            <p class="flex-grow text-indigo-100 drop-shadow-sm">Discover how faith can transform your life and bring peace in difficult times.</p>
+            <button class="mt-4 self-start px-4 py-2 rounded-md bg-white text-indigo-700 font-semibold hover:bg-indigo-50 transition">Listen Now</button>
+          </div>
+        </article>
+
+        <article class="bg-gradient-to-tr from-green-600 to-green-400 text-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300" data-filter="video">
+          <img src="https://images.unsplash.com/photo-1629946832022-c327f74956e0?w=600&amp;q=80" alt="Message 2" class="w-full h-48 object-cover brightness-90">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight drop-shadow-md">Living with Purpose</h3>
+            <p class="flex-grow text-green-100 drop-shadow-sm">Explore how to find and live out your God-given purpose every day.</p>
+            <button class="mt-4 self-start px-4 py-2 rounded-md bg-white text-green-700 font-semibold hover:bg-green-50 transition">Watch Video</button>
+          </div>
+        </article>
+
+        <article class="bg-gradient-to-tr from-pink-600 to-pink-400 text-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:scale-105 transition-transform duration-300" data-filter="written">
+          <img src="https://images.unsplash.com/photo-1724525647065-f948fc102e68?w=600&amp;q=80" alt="Message 3" class="w-full h-48 object-cover brightness-90">
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight drop-shadow-md">Hope in Hard Times</h3>
+            <p class="flex-grow text-pink-100 drop-shadow-sm">A message of hope and resilience in the midst of life’s challenges.</p>
+            <button class="mt-4 self-start px-4 py-2 rounded-md bg-white text-pink-700 font-semibold hover:bg-pink-50 transition">Read More</button>
+          </div>
+        </article>
+
+        <article class="bg-indigo-900 rounded-xl shadow-lg overflow-hidden flex flex-col hidden border border-indigo-700" data-filter="audio">
+          <img src="https://images.unsplash.com/photo-1600288480699-0b0d8a456dd8?w=600&amp;q=80" alt="Audio Message" class="w-full h-48 object-cover border-b border-indigo-700 brightness-90">
+          <div class="p-6 flex flex-col flex-grow text-indigo-100">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight">Faith in Action (Audio)</h3>
+            <p class="flex-grow">Listen to inspiring stories of faith put into practice.</p>
+            <button class="mt-4 self-start px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition">Play Audio</button>
+          </div>
+        </article>
+
+        <article class="bg-green-900 rounded-xl shadow-lg overflow-hidden flex flex-col hidden border border-green-700" data-filter="video">
+          <img src="https://images.unsplash.com/photo-1629946832022-c327f74956e0?w=600&amp;q=80" alt="Video Message" class="w-full h-48 object-cover border-b border-green-700 brightness-90">
+          <div class="p-6 flex flex-col flex-grow text-green-100">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight">Purposeful Living (Video)</h3>
+            <p class="flex-grow">Watch this powerful video teaching on living with intention.</p>
+            <button class="mt-4 self-start px-4 py-2 rounded-md bg-green-600 hover:bg-green-700 text-white font-semibold transition">Watch Video</button>
+          </div>
+        </article>
+
+        <article class="bg-pink-900 rounded-xl shadow-lg overflow-hidden flex flex-col hidden border border-pink-700" data-filter="written">
+          <img src="https://images.unsplash.com/photo-1724525647065-f948fc102e68?w=600&amp;q=80" alt="Written Message" class="w-full h-48 object-cover border-b border-pink-700 brightness-90">
+          <div class="p-6 flex flex-col flex-grow text-pink-100">
+            <h3 class="text-xl font-semibold mb-3 tracking-tight">Resilience in Faith (Written)</h3>
+            <p class="flex-grow">Read this inspiring article about building resilience through faith.</p>
+            <button class="mt-4 self-start px-4 py-2 rounded-md bg-pink-600 hover:bg-pink-700 text-white font-semibold transition">Read Article</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── PROGRAMS ─────────────────────── -->
+  <section class="pt-20 pb-20">
+    <div class="max-w-7xl mr-auto ml-auto pr-4 pl-4 space-y-16">
+      <!-- Upcoming -->
+      <div class="space-y-8">
+  <h2 class="md:text-4xl text-3xl font-semibold tracking-tight">Upcoming Programs</h2>
+  <div class="grid md:grid-cols-2 gap-8">
+    <article class="bg-white dark:bg-neutral-700 rounded-lg shadow-sm overflow-hidden flex flex-col">
+      <img src="https://images.unsplash.com/photo-1640906152676-dace6710d24b?w=600&amp;q=80" alt="Community Outreach" class="w-full h-48 object-cover">
+      <div class="p-4 flex flex-col flex-grow">
+        <h3 class="text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100 tracking-tight">Community Outreach</h3>
+        <p class="text-neutral-700 dark:text-neutral-300 flex-grow">Engage with local communities through service projects and events.</p>
+        
+      </div>
+    </article>
+    <article class="bg-white dark:bg-neutral-700 rounded-lg shadow-sm overflow-hidden flex flex-col">
+      <img src="https://images.unsplash.com/photo-1629946832022-c327f74956e0?w=600&amp;q=80" alt="Small Group Bible Study" class="w-full h-48 object-cover">
+      <div class="p-4 flex flex-col flex-grow">
+        <h3 class="text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100 tracking-tight">Small Group Bible Study</h3>
+        <p class="text-neutral-700 dark:text-neutral-300 flex-grow">Join a weekly group to explore Scripture and grow in faith together.</p>
+        
+      </div>
+    </article>
+    <article class="bg-white dark:bg-neutral-700 rounded-lg shadow-sm overflow-hidden flex flex-col">
+      <img src="https://images.unsplash.com/photo-1724525647065-f948fc102e68?w=600&amp;q=80" alt="Youth Summer Camp" class="w-full h-48 object-cover">
+      <div class="p-4 flex flex-col flex-grow">
+        <h3 class="text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100 tracking-tight">Youth Summer Camp</h3>
+        <p class="text-neutral-700 dark:text-neutral-300 flex-grow">A fun and faith-filled week for youth to connect and grow.</p>
+        
+      </div>
+    </article>
+    <article class="bg-white dark:bg-neutral-700 rounded-lg shadow-sm overflow-hidden flex flex-col">
+      <img src="https://images.unsplash.com/photo-1640906152676-dace6710d24b?w=600&amp;q=80" alt="Prayer Night" class="w-full h-48 object-cover">
+      <div class="p-4 flex flex-col flex-grow">
+        <h3 class="text-xl font-semibold mb-2 text-neutral-900 dark:text-neutral-100 tracking-tight">Prayer Night</h3>
+        <p class="text-neutral-700 dark:text-neutral-300 flex-grow">An evening dedicated to prayer and reflection for all ages.</p>
+        
+      </div>
+    </article>
+  </div>
+</div>
+
+      <!-- Divider -->
+      <div class="border-t border-dashed border-neutral-300 dark:border-neutral-600"></div>
+
+      <!-- ───────────── PAST PROGRAMS – CAROUSEL ───────────── -->
+      
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-300 dark:border-neutral-700 mt-16 pt-10 pb-10">
+      <div class="max-w-7xl text-center mr-auto ml-auto pr-4 pl-4 space-y-4" id="aura-emc6dixcz">
+  <p class="text-sm text-neutral-600 dark:text-neutral-400 font-medium">© 2024 Grace Church. All rights reserved.</p>
+  <nav class="flex justify-center space-x-6">
+    <a href="#privacy" class="text-sm font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">Privacy Policy</a>
+    <a href="#terms" class="text-sm font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">Terms of Service</a>
+    <a href="#contact" class="text-sm font-medium text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">Contact</a>
+  </nav>
+  <div class="flex justify-center space-x-6 mt-2">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" stroke="none" aria-hidden="true">
+        <path d="M22 12a10 10 0 1 0-11.5 9.87v-6.98h-2.2v-2.89h2.2v-2.2c0-2.18 1.3-3.39 3.29-3.39.95 0 1.94.17 1.94.17v2.14h-1.1c-1.09 0-1.43.68-1.43 1.38v1.9h2.44l-.39 2.89h-2.05v6.98A10 10 0 0 0 22 12z"></path>
+      </svg>
+    </a>
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" stroke="none" aria-hidden="true">
+        <path d="M23 3a10.9 10.9 0 0 1-3.14.86A4.48 4.48 0 0 0 22.4.36a9.05 9.05 0 0 1-2.88 1.1 4.52 4.52 0 0 0-7.7 4.12A12.82 12.82 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3.15 9.7a4.47 4.47 0 0 1-2.05-.57v.06a4.52 4.52 0 0 0 3.63 4.42 4.5 4.5 0 0 1-2.04.08 4.52 4.52 0 0 0 4.22 3.14A9.07 9.07 0 0 1 0 19.54a12.79 12.79 0 0 0 6.92 2.03c8.3 0 12.85-6.87 12.85-12.83 0-.2 0-.42-.02-.63A9.22 9.22 0 0 0 23 3z"></path>
+      </svg>
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37a4 4 0 1 1-4.63-4.63 4 4 0 0 1 4.63 4.63z"></path>
+        <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+      </svg>
+    </a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" stroke="none" aria-hidden="true">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"></path>
+      </svg>
+    </a>
+  </div>
+</div>
+    </footer>
+  </section>
+
+  <!-- ───────────────────────── ABOUT & CONTACT (unchanged) ───────────────── -->
+  <!-- … existing About & Contact markup … -->
+
+  <!-- ───────────────────────── FOOTER ─────────────────────── -->
+  <!-- … existing footer markup … -->
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons()
+
+    /* Mobile nav */
+    const menuBtn = document.getElementById('menuBtn')
+    const mobileMenu = document.getElementById('mobileMenu')
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden')
+      menuBtn.querySelector('[data-lucide]').setAttribute(
+        'data-lucide',
+        mobileMenu.classList.contains('hidden') ? 'menu' : 'x'
+      )
+      lucide.createIcons()
+    })
+    document.querySelectorAll('.nav-link').forEach((l) =>
+      l.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden')
+        menuBtn.querySelector('[data-lucide]').setAttribute('data-lucide', 'menu')
+        lucide.createIcons()
+      })
+    )
+
+    /* Theme */
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark')
+      localStorage.setItem(
+        'theme',
+        document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+      )
+      lucide.createIcons()
+    })
+
+    /* Messages filter (unchanged) */
+    // …
+
+    /* Past Programs carousel */
+    const pastCarousel = document.getElementById('pastCarousel')
+    const pastPrev = document.getElementById('pastPrev')
+    const pastNext = document.getElementById('pastNext')
+    const gap = 40 // space-x-10 = 2.5rem = 40px
+
+    function updatePastBtns() {
+      const max = pastCarousel.scrollWidth - pastCarousel.clientWidth
+      pastPrev.disabled = pastCarousel.scrollLeft <= 0
+      pastNext.disabled = pastCarousel.scrollLeft >= max - 1
+    }
+
+    pastNext.addEventListener('click', () => {
+      pastCarousel.scrollBy({ left: pastCarousel.clientWidth + gap, behavior: 'smooth' })
+    })
+    pastPrev.addEventListener('click', () => {
+      pastCarousel.scrollBy({ left: -(pastCarousel.clientWidth + gap), behavior: 'smooth' })
+    })
+    pastCarousel.addEventListener('scroll', updatePastBtns)
+    window.addEventListener('resize', updatePastBtns)
+    updatePastBtns()
+  </script>
+
+</body></html>

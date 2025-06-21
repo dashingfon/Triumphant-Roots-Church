@@ -1,0 +1,17 @@
+{
+  "name": "church-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tailwindcss -i ./src/styles.css -o ./dist/style.css --watch",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.10",
+    "tailwindcss": "^4.1.10"
+  }
+}
